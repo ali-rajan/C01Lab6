@@ -1,4 +1,9 @@
 services:
+  frontend:
+    image: alirajan/quirknotes_frontend:latest
+    ports:
+      - '3000:3000'
+
   backend:
     build:
       context: .
@@ -10,11 +15,6 @@ services:
       - ENV=Docker
     depends_on:
       - mongodb
-    image: alirajan/quirknotes_backend:latest
-    ports:
-    - "4000:4000"
-    depends_on:
-    - mongodb
 
   mongodb:
     image: mongo:latest
